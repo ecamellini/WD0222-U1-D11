@@ -28,6 +28,13 @@
     button {
       background-color: aquamarine;
     }
+
+    .selected {
+      box-shadow: 5px 5px 5px grey;
+      border-radius: 10px;
+      border: 1px solid grey;
+      color: blueviolet;
+    }
   </style>
 </head>
 
@@ -37,6 +44,8 @@
     <div class="section">
       <h2>Some Buttons</h2>
       <button onclick="makeH1Red()">Make H1 Red</button>
+      <button onclick="selectAllH2Tags()">Select All H2 Tags</button>
+      <button onclick="makeH1Red();selectAllH2Tags()">Do Both</button>
     </div>
     <div class="section">
       <h2>First Section</h2>
@@ -98,6 +107,20 @@
       // If the class is not in the list, it adds it.
       h1Node.classList.toggle('red')
     }
+
+    // Create a function that selects ALL our h2 tags.
+    // A tag is selected when it has a .selected class.
+    // If we run the function again, the tags must be un-selected.
+    function selectAllH2Tags() {
+      // let h2Nodes = document.querySelectorAll('h2')
+      let h2Nodes = document.getElementsByTagName('h2') // Another way to do it
+
+      for (let i = 0; i < h2Nodes.length; i++) {
+        let h2Node = h2Nodes[i]
+        h2Node.classList.toggle('selected')
+      }
+    }
+
   </script>
 </body>
 
