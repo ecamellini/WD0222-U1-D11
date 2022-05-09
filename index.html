@@ -7,6 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WD0222 - U1 - D11</title>
   <style>
+    h1 {
+      cursor: pointer;
+    }
+
     h2 {
       text-decoration: underline;
     }
@@ -15,12 +19,25 @@
       background-color: antiquewhite;
       font-style: italic;
     }
+
+    .red {
+      background-color: azure;
+      color: red;
+    }
+
+    button {
+      background-color: aquamarine;
+    }
   </style>
 </head>
 
 <body>
   <div id="container">
-    <h1>DOM Manipulation Examples</h1>
+    <h1 onclick="makeH1Red()">DOM Manipulation Examples</h1>
+    <div class="section">
+      <h2>Some Buttons</h2>
+      <button onclick="makeH1Red()">Make H1 Red</button>
+    </div>
     <div class="section">
       <h2>First Section</h2>
       <p id="first-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
@@ -57,7 +74,7 @@
     // It is executed when this script tag is rendered by the browser.
 
     console.log("This will log to the browser console!!")
-    alert("Welcome to my website!")
+    // alert("Welcome to my website!") -- this results in a browser alert message for the user.
 
     // CONVENTION: whenever you represent a tag, a piece of the DOM
     // call you variables with a name the ends with Node
@@ -72,6 +89,15 @@
     // which is also an object.
     console.log(firstParagraphNode.style)
     firstParagraphNode.style.backgroundColor = "blue"
+
+    function makeH1Red() {
+      let h1Node = document.getElementsByTagName('h1')[0] // Get the first h1 in our page
+      // document.querySelector('h1') // Another way to do the same thing.
+
+      // If the class is in the list, it removes it.
+      // If the class is not in the list, it adds it.
+      h1Node.classList.toggle('red')
+    }
   </script>
 </body>
 
