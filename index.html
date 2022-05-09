@@ -68,6 +68,7 @@
     </div>
     <div class="section">
       <h2>Third Section</h2>
+      <button onclick="addElementToUl()">Add Element</button>
       <ul id="third-section-list">
         <li>Lorem ipsum dolor</li>
         <li>Lorem ipsum dolor</li>
@@ -121,6 +122,20 @@
       }
     }
 
+    // Define a function that adds an item to the UL in the third section.
+    function addElementToUl() {
+      // 1) Create a new node
+      let newLiNode = document.createElement('li')
+
+      // 2) Customize it -- edit the object properties
+      newLiNode.innerText = "Hello, new item here."
+
+      // 3) Attach it to the DOM, somewhere.
+      // Where? We need to get the tag where we want to display the new element.
+      // We get its parent, and add the new element as child.
+      let ulNode = document.getElementById('third-section-list')
+      ulNode.appendChild(newLiNode)
+    }
   </script>
 </body>
 
